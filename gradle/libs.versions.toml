@@ -1,20 +1,19 @@
 [versions]
-agp = "8.9.3"
+agp = "9.2.1"
 glide = "5.0.7"
 gson = "2.14.0"
-kotlin = "2.4.0"
 coreKtx = "1.18.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
-appcompat = "1.7.1"
+appcompat = "1.8.0"
 lottie = "6.7.1"
 material = "1.14.0"
 activity = "1.13.0"
-constraintlayout = "2.2.1"
-ssquadadslibrary = "1.7.0"
+constraintlayout = "2.2.2"
+ssquadadslibrary = "1.7.2"
 userMessagingPlatform = "4.0.0"
-playServicesAds = "25.4.0"
+playServicesAds = "25.5.0"
 
 
 
@@ -37,5 +36,4 @@ play-services-ads = { module = "com.google.android.gms:play-services-ads", versi
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

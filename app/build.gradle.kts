@@ -3,27 +3,37 @@ import java.text.SimpleDateFormat
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {
     namespace = "com.example.baseproject"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.baseproject"
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 37
 //        versionCode = 100
 //        versionName = "1.0.0"
 
         versionCode = 1
         versionName = "test"
 
-        val dateTime = SimpleDateFormat("dd-MM-yyyy").format(System.currentTimeMillis())
-        setProperty("archivesBaseName", "Base_project_($versionCode)_$dateTime")
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    androidComponents {
+        onVariants(selector().withBuildType("release")) { variant ->
+            val dateTime = SimpleDateFormat("dd-MM-yyyy")
+                .format(System.currentTimeMillis())
+
+            variant.outputs.forEach { output ->
+                val versionCode = output.versionCode.get()
+                output.outputFileName.set(
+                    "Magic_Gesture_(${versionCode})_$dateTime.apk"
+                )
+            }
+        }
     }
 
     signingConfigs {
@@ -98,7 +108,6 @@ dependencies {
     implementation(libs.user.messaging.platform)
 
     implementation(libs.gson)
-
     implementation(libs.play.services.ads)
 
 

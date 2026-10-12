@@ -53,7 +53,6 @@ fun Context.checkPermission(permission: String): Boolean {
 }
 
 fun Context.isNetworkAvailable(): Boolean {
-
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val network = connectivityManager.activeNetwork ?: return false
 
